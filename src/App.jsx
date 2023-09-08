@@ -1,30 +1,19 @@
 import React, { useState } from 'react'
 import Button from './components/Button'
+import plus from './plus.svg'
+import minus from './minus.svg'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const flexCenter = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
   return (
     <>
-      <div className="container">
-        <Button
-          color={'#191'}
-          hoverColor={'#5d5'}
-          onClick={() => setCount(count + 1)}
-          style={{ fontSize: '24px', lineHeight: '0.8' }}
-        >
-          +
-        </Button>
-        <h1>{count}</h1>
-        <Button
-          color={'#191'}
-          hoverColor={'#5d5'}
-          onClick={() => setCount(count - 1)}
-          style={{ fontSize: '24px', lineHeight: '0.8' }}
-        >
-          -
-        </Button>
-      </div>
       <style jsx>{`
         .container {
           display: flex;
@@ -34,7 +23,30 @@ function App() {
           width: 50px;
           text-align: center;
         }
+        .container .btn img {
+          width: 25px;
+          filter: invert(1);
+        }
       `}</style>
+      <div className="container">
+        <Button
+          color={'#191'}
+          hoverColor={'#3b3'}
+          onClick={() => setCount(count + 1)}
+          style={flexCenter}
+        >
+          <img src={plus}></img>
+        </Button>
+        <h1>{count}</h1>
+        <Button
+          color={'#191'}
+          hoverColor={'#3b3'}
+          onClick={() => setCount(count - 1)}
+          style={flexCenter}
+        >
+          <img src={minus}></img>
+        </Button>
+      </div>
     </>
   )
 }
